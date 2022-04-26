@@ -1,0 +1,17 @@
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.csproj.AssemblyReference.cache
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace_value_with_expression.Form1.resources
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.csproj.GenerateResource.cache
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.GeneratedMSBuildEditorConfig.editorconfig
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.AssemblyInfoInputs.cache
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.AssemblyInfo.cs
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.csproj.CoreCompileInputs.cache
+C:\BP-Objects\Replace value with expression\bin\Debug\net6.0-windows\Replace value with expression.exe
+C:\BP-Objects\Replace value with expression\bin\Debug\net6.0-windows\Replace value with expression.deps.json
+C:\BP-Objects\Replace value with expression\bin\Debug\net6.0-windows\Replace value with expression.runtimeconfig.json
+C:\BP-Objects\Replace value with expression\bin\Debug\net6.0-windows\Replace value with expression.dll
+C:\BP-Objects\Replace value with expression\bin\Debug\net6.0-windows\Replace value with expression.pdb
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.dll
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\refint\Replace value with expression.dll
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.pdb
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\Replace value with expression.genruntimeconfig.cache
+C:\BP-Objects\Replace value with expression\obj\Debug\net6.0-windows\ref\Replace value with expression.dll
