@@ -1,0 +1,122 @@
+﻿<process name="Replace field with expression" version="1.0" bpversion="7.0.1.49890" narrative="Code written in C# for various tasks." byrefcollection="true" type="object" runmode="Exclusive" preferredid="5b4efaa5-a203-4db0-b26c-c1d02a29e764">
+  <appdef>
+    <element name="Application Root">
+      <id>7fa726ea-69d7-4350-8d7d-fb0327e50e54</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>283</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="d8930484-bd24-4989-9b7a-0834266d5fc9" name="Replace field with expression" type="SubSheetInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="015b25d3-3aba-4db0-99f0-4a467258248f" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="collection" name="Output" stage="Output" />
+    </outputs>
+  </stage>
+  <stage stageid="018ed2ea-deee-4af4-98de-b8a97402a85b" name="input" type="Collection">
+    <loginhibit />
+    <display x="-225" y="45" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a08c5a45-335d-4a9f-848f-d37856668181" name="exp" type="Data">
+    <loginhibit />
+    <display x="-165" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="46533d38-ab0f-4924-b981-a9eaff77c591" name="type" type="Data">
+    <loginhibit />
+    <display x="-225" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b65bd826-f090-42d2-8954-34fe44c8a1e1" name="Code35" type="Code">
+    <loginhibit />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="exp" expr="[exp]" />
+      <input type="collection" name="input" expr="[input]" />
+      <input type="text" name="type" expr="[type]" />
+      <input type="text" name="name" expr="[name]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="output" stage="Output" />
+    </outputs>
+    <onsuccess>015b25d3-3aba-4db0-99f0-4a467258248f</onsuccess>
+    <code><![CDATA[string name2 = name + "abcdeF654321";
+
+if (type.ToLower().Equals("number"))
+{
+	input.Columns.Add(name2, typeof(decimal), exp);
+}
+else if (type.ToLower().Equals("text"))
+{
+	input.Columns.Add(name2, typeof(string), exp);
+}
+else if (type.ToLower().Equals("flag"))
+{
+	input.Columns.Add(name2, typeof(bool), exp);
+}
+else if (type.ToLower().Equals("datetime"))
+{
+	input.Columns.Add(name2, typeof(DateTime), exp);
+}
+
+foreach (DataRow r in input.Rows)
+{
+	r[name] = r[name2];
+}
+
+input.Columns.Remove(name2);
+
+
+input.AcceptChanges();
+
+output = input.Copy();
+]]></code>
+  </stage>
+  <stage stageid="b41db79b-f792-458d-bfbe-9387dafa0fd9" name="name" type="Data">
+    <loginhibit />
+    <display x="-165" y="45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a6b3a94e-ef58-4311-8011-744d2850be23" name="Output" type="Collection">
+    <loginhibit />
+    <display x="-225" y="120" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f0d8fd19-6a73-41c6-af66-879aee067639" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="collection" name="input" stage="input" />
+      <input type="text" name="exp" stage="exp" />
+      <input type="text" name="name" narrative="target column to replace values" stage="name" />
+      <input type="text" name="type" stage="type" />
+    </inputs>
+    <onsuccess>b65bd826-f090-42d2-8954-34fe44c8a1e1</onsuccess>
+  </stage>
+</process>

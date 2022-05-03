@@ -1,0 +1,243 @@
+﻿<process name="Distinc Columns to SQL" version="1.0" bpversion="7.0.1.49890" narrative="Code written in C# for various tasks." byrefcollection="true" type="object" runmode="Exclusive" preferredid="5b4efaa5-a203-4db0-b26c-c1d02a29e764">
+  <appdef>
+    <element name="Application Root">
+      <id>7fa726ea-69d7-4350-8d7d-fb0327e50e54</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>283</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="01aa9e27-10c6-4d79-a9eb-33e0c4e551a8" name="Distinc Columns to SQL" type="SubSheetInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="862c8f2a-bdcc-4979-8d23-4a03d8308a99" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="collection" name="Input Collection" stage="Collection" />
+      <input type="text" name="Column1" stage="Column1" />
+      <input type="text" name="Column2" stage="Column2" />
+      <input type="text" name="Text to Replace" stage="fieldToBeReplaced" />
+      <input type="text" name="Query" stage="query" />
+    </inputs>
+    <onsuccess>3af51a10-2752-4540-9897-176c2b3ae195</onsuccess>
+  </stage>
+  <stage stageid="81d16284-7d30-407a-bc1e-f598984f6914" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="Output" stage="Output" />
+    </outputs>
+  </stage>
+  <stage stageid="3af51a10-2752-4540-9897-176c2b3ae195" name="Code36" type="Code">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="collection" name="input" expr="[Collection]" />
+      <input type="text" name="column1" expr="[Column1]" />
+      <input type="text" name="column2" expr="[Column2]" />
+      <input type="text" name="query" expr="[query]" />
+      <input type="text" name="fieldToReplace" expr="[fieldToBeReplaced]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="output" stage="Output" />
+    </outputs>
+    <onsuccess>81d16284-7d30-407a-bc1e-f598984f6914</onsuccess>
+    <code><![CDATA[string result = "";
+string col1 = String.Empty;
+string col2 = String.Empty;
+
+//case if the input collection consists of only one column, then the col1 should be named as per that column
+if (input.Columns.Count == 1) //replace with input.Columns.Count
+{
+	col1 = input.Columns[0].ColumnName;
+
+	if (input.Rows.Count > 0)
+	{
+		//arrayList instance where to store distinct string elements
+		string[] myList = new string[input.Rows.Count];
+
+		//first array element
+		int k = 0;
+
+		//datatable loop
+		foreach (DataRow r in input.Rows) //replace input with input
+		{
+			myList[k] = r[col1].ToString();
+			k++;
+		}
+
+		//get the distinct array
+		string[] myListdist = myList.Distinct().ToArray();
+
+		//loop arrayList and build a string with separators
+		foreach (string obj in myListdist)
+		{
+			result += "'" + obj.ToString().Trim() + "',";
+		}
+
+		//result with seprator cleaning
+		int i = result.LastIndexOf(',');
+		result = result.Remove(i, 1);
+
+	}
+
+	else output = "''";
+}
+
+//case if the input colleciton has more than one column and the input columns are two
+else if (input.Columns.Count > 1 && column1 != "" && column2 != "")
+{
+	//assign the input columns
+	col1 = column1;
+	col2 = column2;
+
+	if (input.Rows.Count > 0)
+	{
+		//arrayList instance where to store distinct string elements
+		string[] myList = new string[input.Rows.Count*2];
+
+		//first array element
+		int k = 0;
+
+		//datatable loop
+		foreach (DataRow r in input.Rows) //replace input with input
+		{
+			myList[k] = r[col1].ToString();
+			myList[k+1] = r[col2].ToString();
+		   
+			k = k + 2;
+			
+		}
+
+		//get the distinct array
+		string[] myListdist = myList.Distinct().ToArray();
+
+		//loop arrayList and build a string with separators
+		foreach (string obj in myListdist)
+		{
+			result += "'" + obj.ToString().Trim() + "',";
+		}
+
+		//result with seprator cleaning
+		int i = result.LastIndexOf(',');
+		result = result.Remove(i, 1);
+
+	}
+
+	else output = "''";
+}
+
+//case if the input colleciton has more than one column and the input columns is 1
+else if (input.Columns.Count > 1 && column1 != "" && column2 == "")
+{
+
+	//assign the input column
+	col1 = column1;
+
+	if (input.Rows.Count > 0)
+	{
+		//arrayList instance where to store distinct string elements
+		string[] myList = new string[input.Rows.Count];
+
+		//first array element
+		int k = 0;
+
+		//datatable loop
+		foreach (DataRow r in input.Rows) //replace input with input
+		{
+			myList[k] = r[col1].ToString();
+			k++;
+		}
+
+		//get the distinct array
+		string[] myListdist = myList.Distinct().ToArray();
+
+		//loop arrayList and build a string with separators
+		foreach (string obj in myListdist)
+		{
+			result += "'" + obj.ToString().Trim() + "',";
+		}
+
+		//result with seprator cleaning
+		int i = result.LastIndexOf(',');
+		result = result.Remove(i, 1);
+
+	}
+
+	else output = "''";
+
+}
+else
+{
+	output = "''";
+}
+
+//query update with distinct list
+output = query.Replace(fieldToReplace, result);]]></code>
+  </stage>
+  <stage stageid="61affe5b-b764-463f-a3c7-68a673f0a299" name="Column1" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="aeef6718-fd8f-4ac6-9e0f-777acbaacbf6" name="Output" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="165" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="41d73dfb-7b8e-46fb-9bcc-d7486ba16556" name="Collection" type="Collection">
+    <loginhibit onsuccess="true" />
+    <display x="-150" y="-15" w="90" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f5dc47b9-3973-49e8-b88b-2d6548948d9a" name="Input" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-315" y="-45" w="225" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="e3fc5708-588d-4b05-8fce-5a0e1931bbe2" name="Output" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-315" y="135" w="225" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF99CC" />
+  </stage>
+  <stage stageid="ec23db0c-43f3-48da-9820-2232cf914488" name="Column2" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1f4d1ed5-0d98-43d7-84ce-1ffba39f0dd4" name="fieldToBeReplaced" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="45" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="98b4d352-45ba-4ffb-96f3-8754423f975d" name="query" type="Data">
+    <display x="-165" y="45" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>
