@@ -1,0 +1,17 @@
+C:\BP-Objects\Distinct Columns to SQL\bin\Debug\net6.0-windows\Distinct Columns to SQL.exe
+C:\BP-Objects\Distinct Columns to SQL\bin\Debug\net6.0-windows\Distinct Columns to SQL.deps.json
+C:\BP-Objects\Distinct Columns to SQL\bin\Debug\net6.0-windows\Distinct Columns to SQL.runtimeconfig.json
+C:\BP-Objects\Distinct Columns to SQL\bin\Debug\net6.0-windows\Distinct Columns to SQL.dll
+C:\BP-Objects\Distinct Columns to SQL\bin\Debug\net6.0-windows\Distinct Columns to SQL.pdb
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.csproj.AssemblyReference.cache
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.csproj.GenerateResource.cache
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.GeneratedMSBuildEditorConfig.editorconfig
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.AssemblyInfoInputs.cache
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.AssemblyInfo.cs
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.csproj.CoreCompileInputs.cache
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.dll
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\refint\Distinct Columns to SQL.dll
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.pdb
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct Columns to SQL.genruntimeconfig.cache
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\ref\Distinct Columns to SQL.dll
+C:\BP-Objects\Distinct Columns to SQL\obj\Debug\net6.0-windows\Distinct_Columns_to_SQL.Form1.resources
