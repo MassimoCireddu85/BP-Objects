@@ -22,23 +22,23 @@ namespace Distinct_Columns_to_SQL
         private void Form1_Load(object sender, EventArgs e)
         {
             //create a datatable instance and add the first columns
-            DataTable dt = new DataTable();
-            dt.Columns.Add("ID");
-            dt.Columns.Add("CODE1");
-            dt.Columns.Add("CODE2");
+            DataTable input = new DataTable();
+            input.Columns.Add("ID");
+            input.Columns.Add("CODE1");
+            input.Columns.Add("CODE2");
 
             //add new rows with data
-            dt.Rows.Add("01", "7240", "1020");
-            dt.Rows.Add("02", "8660", "0642");
-            dt.Rows.Add("03", "1428", "0131");
-            dt.Rows.Add("04", "1428", "0131");
-            dt.Rows.Add("05", "1020", "7240");
+            input.Rows.Add("01", "7240", "1020");
+            input.Rows.Add("02", "8660", "0642");
+            input.Rows.Add("03", "1428", "0131");
+            input.Rows.Add("04", "1428", "0131");
+            input.Rows.Add("05", "1020", "7240");
 
             //change column order with SetOrdinal Method
-            dt.Columns["ID"].SetOrdinal(0);
+            input.Columns["ID"].SetOrdinal(0);
 
             //import data to the data grid
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = input;
      
             
 
@@ -57,20 +57,20 @@ namespace Distinct_Columns_to_SQL
             string col2 = String.Empty;
 
             //case if the input collection consists of only one column, then the col1 should be named as per that column
-            if (dt.Columns.Count == 1) //replace with input.Columns.Count
+            if (input.Columns.Count == 1) //replace with input.Columns.Count
             {
-                col1 = dt.Columns[0].ColumnName;
+                col1 = input.Columns[0].ColumnName;
 
-                if (dt.Rows.Count > 0)
+                if (input.Rows.Count > 0)
                 {
                     //arrayList instance where to store distinct string elements
-                    string[] myList = new string[dt.Rows.Count];
+                    string[] myList = new string[input.Rows.Count];
 
                     //first array element
                     int k = 0;
 
                     //datatable loop
-                    foreach (DataRow r in dt.Rows) //replace dt with input
+                    foreach (DataRow r in input.Rows) //replace dt with input
                     {
                         myList[k] = r[col1].ToString();
                         k++;
@@ -95,22 +95,22 @@ namespace Distinct_Columns_to_SQL
             }
 
             //case if the input colleciton has more than one column and the input columns are two
-            else if (dt.Columns.Count > 1 && column1 != "" && column2 != "")
+            else if (input.Columns.Count > 1 && column1 != "" && column2 != "")
             {
                 //assign the input columns
                 col1 = column1;
                 col2 = column2;
 
-                if (dt.Rows.Count > 0)
+                if (input.Rows.Count > 0)
                 {
                     //arrayList instance where to store distinct string elements
-                    string[] myList = new string[dt.Rows.Count*2];
+                    string[] myList = new string[input.Rows.Count*2];
 
                     //first array element
                     int k = 0;
 
                     //datatable loop
-                    foreach (DataRow r in dt.Rows) //replace dt with input
+                    foreach (DataRow r in input.Rows) //replace dt with input
                     {
                         myList[k] = r[col1].ToString();
                         myList[k+1] = r[col2].ToString();
@@ -138,22 +138,22 @@ namespace Distinct_Columns_to_SQL
             }
 
             //case if the input colleciton has more than one column and the input columns is 1
-            else if (dt.Columns.Count > 1 && column1 != "" && column2 == "")
+            else if (input.Columns.Count > 1 && column1 != "" && column2 == "")
             {
 
                 //assign the input column
                 col1 = column1;
 
-                if (dt.Rows.Count > 0)
+                if (input.Rows.Count > 0)
                 {
                     //arrayList instance where to store distinct string elements
-                    string[] myList = new string[dt.Rows.Count];
+                    string[] myList = new string[input.Rows.Count];
 
                     //first array element
                     int k = 0;
 
                     //datatable loop
-                    foreach (DataRow r in dt.Rows) //replace dt with input
+                    foreach (DataRow r in input.Rows) //replace dt with input
                     {
                         myList[k] = r[col1].ToString();
                         k++;
@@ -204,25 +204,25 @@ namespace Distinct_Columns_to_SQL
             string col2 = String.Empty;
 
             //case if the input collection consists of only one column, then the col1 should be named as per that column
-            if (dt.Columns.Count == 1) //replace with input.Columns.Count
+            if (input.Columns.Count == 1) //replace with input.Columns.Count
             {
-                col1 = dt.Columns[0].ColumnName;
+                col1 = input.Columns[0].ColumnName;
             }
             
             //case if the input colleciton has more than one column and the input columns are two
-            else if (dt.Columns.Count > 1 && column1 != "" && column2 != "")
+            else if (input.Columns.Count > 1 && column1 != "" && column2 != "")
             {
                 //assign the input columns
                 col1 = column1;
                 col2 = column2;
 
-                if (dt.Rows.Count > 0)
+                if (input.Rows.Count > 0)
                 {
                     //arrayList instance where to store distinct string elements
                     ArrayList myList = new ArrayList();
 
                     //datatable loop
-                    foreach (DataRow r in dt.Rows) //replace dt with input
+                    foreach (DataRow r in input.Rows) //replace dt with input
                     {
                         //if element on r doesn't belong to arrayList, add to arrayList
                         if (!myList.Contains(r[col1].ToString()))
@@ -255,19 +255,19 @@ namespace Distinct_Columns_to_SQL
             }
 
             //case if the input colleciton has more than one column and the input columns is 1
-            else if (dt.Columns.Count > 1 && column1 != "" && column2 == "")
+            else if (input.Columns.Count > 1 && column1 != "" && column2 == "")
             {
                 
                 //assign the input column
                 col1 = column1;
 
-                if (dt.Rows.Count > 0)
+                if (input.Rows.Count > 0)
                 {
                     //arrayList instance where to store distinct string elements
                     ArrayList myList = new ArrayList();
 
                     //datatable loop
-                    foreach (DataRow r in dt.Rows) //replace dt with input
+                    foreach (DataRow r in input.Rows) //replace dt with input
                     {
                         //if element on r doesn't belong to arrayList, add to arrayList
                         if (!myList.Contains(r[col1].ToString()))
@@ -295,8 +295,8 @@ namespace Distinct_Columns_to_SQL
                 else output = "''";
 
             }
+            
             */
-
 
 
         }

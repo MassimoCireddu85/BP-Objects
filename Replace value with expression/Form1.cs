@@ -21,21 +21,21 @@ namespace Replace_value_with_expression
         private void Form1_Load(object sender, EventArgs e)
         {
             //how to create a datatable instance and add the first columns
-            DataTable dt = new DataTable();
-            dt.Columns.Add("ID");
-            dt.Columns.Add("Name");
-            dt.Columns.Add("Surname");
+            DataTable input = new DataTable();
+            input.Columns.Add("ID");
+            input.Columns.Add("Name");
+            input.Columns.Add("Surname");
 
             //how to add new rows with data
-            dt.Rows.Add("01", "Massimo", "Cireddu");
-            dt.Rows.Add("02", "Malak", "Lunati");
-            dt.Rows.Add("03", "Nanzo", "Lunati");
+            input.Rows.Add("01", "Massimo", "Cireddu");
+            input.Rows.Add("02", "Malak", "Lunati");
+            input.Rows.Add("03", "Nanzo", "Lunati");
 
             //how to change column order with SetOrdinal Method
-            dt.Columns["ID"].SetOrdinal(1);
+            input.Columns["ID"].SetOrdinal(1);
 
             //how to import data to the data grid
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = input;
 
             //REPLACE VALUE WITH EXPRESSION
             //user parameters
@@ -49,32 +49,32 @@ namespace Replace_value_with_expression
 
             if (type.ToLower().Equals("number"))
             {
-                dt.Columns.Add(name2, typeof(decimal), exp);
+                input.Columns.Add(name2, typeof(decimal), exp);
             }
             else if (type.ToLower().Equals("text"))
             {
-                dt.Columns.Add(name2, typeof(string), exp);
+                input.Columns.Add(name2, typeof(string), exp);
             }
             else if (type.ToLower().Equals("flag"))
             {
-                dt.Columns.Add(name2, typeof(bool), exp);
+                input.Columns.Add(name2, typeof(bool), exp);
             }
             else if (type.ToLower().Equals("datetime"))
             {
-                dt.Columns.Add(name2, typeof(DateTime), exp);
+                input.Columns.Add(name2, typeof(DateTime), exp);
             }
 
-            foreach (DataRow r in dt.Rows)
+            foreach (DataRow r in input.Rows)
             {
                 r[name] = r[name2];
             }
 
-            dt.Columns.Remove(name2);
+            input.Columns.Remove(name2);
 
 
-            dt.AcceptChanges();
+            input.AcceptChanges();
 
-            output = dt.Copy();
+            output = input.Copy();
             dataGridView1.DataSource = output;
         }
     }
