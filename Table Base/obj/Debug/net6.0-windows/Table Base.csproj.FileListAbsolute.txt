@@ -1,0 +1,17 @@
+C:\BP-Objects\Table Base\bin\Debug\net6.0-windows\Table Base.exe
+C:\BP-Objects\Table Base\bin\Debug\net6.0-windows\Table Base.deps.json
+C:\BP-Objects\Table Base\bin\Debug\net6.0-windows\Table Base.runtimeconfig.json
+C:\BP-Objects\Table Base\bin\Debug\net6.0-windows\Table Base.dll
+C:\BP-Objects\Table Base\bin\Debug\net6.0-windows\Table Base.pdb
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.csproj.AssemblyReference.cache
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table_Base.Form1.resources
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.csproj.GenerateResource.cache
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.GeneratedMSBuildEditorConfig.editorconfig
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.AssemblyInfoInputs.cache
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.AssemblyInfo.cs
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.csproj.CoreCompileInputs.cache
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.dll
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\refint\Table Base.dll
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.pdb
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\Table Base.genruntimeconfig.cache
+C:\BP-Objects\Table Base\obj\Debug\net6.0-windows\ref\Table Base.dll
